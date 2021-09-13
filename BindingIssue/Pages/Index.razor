@@ -1,0 +1,21 @@
+﻿@page "/"
+@inherits ReactiveUI.Blazor.ReactiveComponentBase<ViewModel>
+
+<h5>Nested ViewModels Issue</h5>
+
+<h6>
+    After a few seconds, you'll see the PARENT binding gets updated, but not the NESTED one:
+</h6>
+
+<p>@MyViewModel.TestString</p>
+<p>@MyViewModel.NestedViewModel.TestString</p>
+
+@code{
+
+    [Inject]
+    public ViewModel MyViewModel
+    {
+        get => ViewModel;
+        set => ViewModel = value;
+    }
+}
